@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>居酒屋サンプル｜炭火焼きと旬菜 いざかや縁（えにし）</title>
+<meta name="description" content="炭火焼きと旬の小皿が自慢の居酒屋サンプル。名物ねぎま串・レバかつ・出汁おでん。2時間飲み放題コース3,500円〜。Web予約・当日席あり。">
+<style>
+  :root{
+    --fg:#0f172a; --muted:#475569; --line:#e2e8f0; --acc:#f97316; --bg:#ffffff; --chip:#fff7ed;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial;color:var(--fg);background:var(--bg);line-height:1.6}
+  img{max-width:100%;height:auto;display:block}
+  a{text-decoration:none;color:inherit}
+  header,main,footer{max-width:1000px;margin:0 auto;padding:20px}
+  .hero{position:relative;border-radius:18px;overflow:hidden}
+  .hero img{width:100%;height:50vh;object-fit:cover}
+  .hero .overlay{
+    position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.35),rgba(0,0,0,.55));
+    display:flex;align-items:end
+  }
+  .hero .copy{color:#fff;padding:18px}
+  .hero h1{font-size:28px;margin:0 0 6px}
+  .hero .lead{opacity:.95}
+  .chips{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+  .chip{background:var(--chip);color:#9a3412;border:1px solid #fed7aa;padding:4px 10px;border-radius:999px;font-size:12px}
+
+  .section{margin:28px 0}
+  h2{font-size:22px;margin:0 0 10px}
+  .grid{display:grid;gap:16px}
+  @media(min-width:900px){.cols-3{grid-template-columns:repeat(3,1fr)}.cols-2{grid-template-columns:1fr 1fr}}
+  .card{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#fff}
+  .card .body{padding:14px}
+  .price{font-weight:700}
+  .badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
+  .badge{font-size:11px;border:1px solid var(--line);padding:2px 8px;border-radius:999px;background:#fff}
+  .btn{display:inline-flex;gap:8px;align-items:center;padding:12px 16px;border-radius:12px;border:1px solid var(--line);background:#fff}
+  .btn.primary{background:var(--acc);color:#fff;border-color:var(--acc)}
+  .btn:hover{opacity:.92}
+
+  .menu-list{display:grid;gap:12px}
+  .menu-item{display:flex;gap:12px}
+  .menu-item img{width:96px;height:96px;object-fit:cover;border-radius:12px;border:1px solid var(--line)}
+  .menu-item .meta{flex:1}
+  .menu-item .meta h3{margin:0 0 4px;font-size:16px}
+  .menu-item .meta p{margin:0;color:var(--muted);font-size:13px}
+
+  .two-col{display:grid;gap:16px}
+  @media(min-width:900px){.two-col{grid-template-columns:1.2fr .8fr}}
+
+  .faq details{border:1px solid var(--line);border-radius:12px;padding:10px;background:#fff}
+  .faq summary{cursor:pointer;font-weight:600}
+
+  .dock{position:fixed;left:0;right:0;bottom:0;background:#ffffffcc;backdrop-filter:saturate(180%) blur(8px);border-top:1px solid var(--line);padding:10px 16px;display:flex;gap:10px;justify-content:center;z-index:50}
+  .dock .btn{border-radius:999px;padding:10px 14px}
+
+  footer{color:var(--muted);font-size:13px;margin-bottom:90px}
+</style>
+
+<!-- 構造化データ：レストラン（必要に応じて差し替え） -->
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@type":"Restaurant",
+ "name":"炭火焼きと旬菜 いざかや縁（えにし）",
+ "servesCuisine":["居酒屋","和食","焼き鳥","小皿"],
+ "priceRange":"¥¥",
+ "telephone":"+81-90-0000-0000",
+ "address":{"@type":"PostalAddress","addressLocality":"Shibuya-ku","addressRegion":"Tokyo","postalCode":"150-0000","streetAddress":"Sample 1-2-3"},
+ "openingHoursSpecification":[
+   {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"17:00","closes":"24:00"},
+   {"@type":"OpeningHoursSpecification","dayOfWeek":["Saturday","Sunday"],"opens":"16:00","closes":"24:00"}
+ ],
+ "acceptsReservations":"True",
+ "sameAs":["https://wakanaaargajagk633674.github.io/izakaya.html"]
+}
+</script>
+</head>
+<body>
+
+<header>
+  <div class="hero">
+    <!-- ヒーロー画像（生成ダミー） -->
+    <img src="images/hero.jpg" alt="炭火と肴、居酒屋のカウンター風景">
+    <div class="overlay">
+      <div class="copy">
+        <div class="chips">
+          <span class="chip">炭火焼き</span>
+          <span class="chip">小皿つまみ</span>
+          <span class="chip">2H飲み放題</span>
+          <span class="chip">当日席OK</span>
+        </div>
+        <h1>炭火と旬菜、<br>一番おいしい温度で。</h1>
+        <p class="lead">名物「ねぎま」「レバかつ」「出汁おでん」。<br>お一人様も、二軒目も、宴会も。</p>
+        <div style="margin-top:10px;display:flex;gap:10px;flex-wrap:wrap">
+          <a id="ctaMailTop" class="btn primary" href="#">来店予約する</a>
+          <a class="btn" href="#course">コースを見る</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- 注目ブロック（3枚並び） -->
+  <section class="section">
+    <h2>まずは“ここ”を食べてほしい</h2>
+    <div class="grid cols-3">
+      <div class="card">
+        <img src="images/dish_negima.jpg" alt="ねぎま串">
+        <div class="body">
+          <h3>名物｜ねぎま串</h3>
+          <p>火入れはレアすぎず、ジューシーに。塩で。</p>
+          <div class="badges"><span class="badge">一本180円</span><span class="badge">注文率No.1</span></div>
+        </div>
+      </div>
+      <div class="card">
+        <img src="images/dish_oden.jpg" alt="出汁おでん">
+        <div class="body">
+          <h3>出汁おでん</h3>
+          <p>旨みの出汁に浸る大根と玉子。〆まで熱々。</p>
+          <div class="badges"><span class="badge">出汁おかわり可</span></div>
+        </div>
+      </div>
+      <div class="card">
+        <img src="images/dish_levakatsu.jpg" alt="レバかつ">
+        <div class="body">
+          <h3>レバかつ</h3>
+          <p>外サク、中とろり。ソースと和辛子で。</p>
+          <div class="badges"><span class="badge">数量限定</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- コース／飲み放題 -->
+  <section id="course" class="section two-col">
+    <div class="card">
+      <img src="images/drink_beer.jpg" alt="飲み放題コース">
+      <div class="body">
+        <h2>2時間飲み放題コース</h2>
+        <p class="price">お一人様 <strong>3,500円〜</strong>（4品）／<strong>4,500円</strong>（6品）</p>
+        <ul>
+          <li>前菜3種盛り</li>
+          <li>名物ねぎま串・本日の焼き物</li>
+          <li>出汁おでん（大根・玉子）</li>
+          <li>〆：鶏出汁茶漬け</li>
+        </ul>
+        <div class="badges"><span class="badge">当日OK</span><span class="badge">2名〜18名</span><span class="badge">席のみ可</span></div>
+        <div style="margin-top:10px">
+          <a id="ctaMailCourse" class="btn primary" href="#">コース空き状況を問い合わせ</a>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="body">
+        <h2>ドリンク</h2>
+        <div class="menu-list">
+          <div class="menu-item">
+            <img src="images/drink_beer.jpg" alt="生ビール">
+            <div class="meta"><h3>生ビール</h3><p>最初の一杯はやっぱりこれ。</p></div>
+          </div>
+          <div class="menu-item">
+            <img src="images/drink_lemon_sour.jpg" alt="レモンサワー">
+            <div class="meta"><h3>こだわりレモンサワー</h3><p>すっぱ旨い。追いレモン可。</p></div>
+          </div>
+          <div class="menu-item">
+            <img src="images/drink_sake.jpg" alt="日本酒">
+            <div class="meta"><h3>地酒いろいろ</h3><p>季節のおすすめをご用意。</p></div>
+          </div>
+        </div>
+        <div style="margin-top:10px">
+          <a id="ctaMailDrink" class="btn" href="#">飲み放題メニュー詳細を受け取る</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 店内・席 -->
+  <section class="section">
+    <h2>席・店内</h2>
+    <div class="grid cols-3">
+      <img class="card" src="images/interior_counter.jpg" alt="カウンター席">
+      <img class="card" src="images/interior_table.jpg" alt="テーブル席">
+      <img class="card" src="images/interior_zashiki.jpg" alt="小上がり">
+    </div>
+  </section>
+
+  <!-- お知らせ -->
+  <section class="section card">
+    <div class="body">
+      <h2>お知らせ</h2>
+      <ul>
+        <li>【平日限定】ハッピーアワー 17:00-18:00 生ビール半額</li>
+        <li>【季節限定】秋刀魚の炭火焼きはじまりました</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- アクセス／営業時間／よくある質問 -->
+  <section class="section two-col">
+    <div class="card">
+      <div class="body">
+        <h2>アクセス</h2>
+        <p>東京都渋谷区Sample 1-2-3（渋谷駅 徒歩5分）</p>
+        <p>営業時間：平日 17:00-24:00／土日 16:00-24:00</p>
+        <p>電話：<a href="tel:09000000000">090-0000-0000</a>（当日席・道案内）</p>
+        <p><a class="btn" href="https://www.google.com/maps/search/?api=1&query=渋谷駅">Googleマップで開く</a></p>
+      </div>
+    </div>
+    <div class="card faq">
+      <div class="body">
+        <h2>よくある質問</h2>
+        <details><summary>予約は何名から？</summary><p>2名様から承ります。最大18名で半貸切可。</p></details>
+        <details><summary>喫煙はできますか？</summary><p>店内禁煙。店外に喫煙スペースあり。</p></details>
+        <details><summary>アレルギー対応は？</summary><p>予約時にお知らせください。できる限り対応します。</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- 口コミ（ダミー） -->
+  <section class="section">
+    <h2>お客様の声</h2>
+    <div class="grid cols-3">
+      <div class="card"><div class="body"><strong>★★★★★</strong><p>ねぎまの火入れ最高。ビールが止まらない。</p><small>30代 男性</small></div></div>
+      <div class="card"><div class="body"><strong>★★★★★</strong><p>出汁おでんがやさしい。二軒目にも良い。</p><small>40代 女性</small></div></div>
+      <div class="card"><div class="body"><strong>★★★★☆</strong><p>カウンターで一人飲み、居心地◎。</p><small>20代 男性</small></div></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>© 2025 炭火焼きと旬菜 いざかや縁（えにし）｜本ページはサンプルです。表記は仮。</p>
+</footer>
+
+<!-- 画面下の固定CTA -->
+<div class="dock">
+  <a id="ctaMailDock" class="btn primary" href="#">来店予約する</a>
+  <a class="btn" href="#course">コースを見る</a>
+</div>
+
+<script>
+  // ▼問い合わせ宛先（あなたのGmail）
+  const TO = "m.satoru1983@gmail.com";
+  function buildMailto(purpose){
+    const q = new URLSearchParams(location.search);
+    const utm = ['utm_source','utm_medium','utm_campaign','utm_term','utm_content']
+      .map(k=>q.get(k)?`${k}=${q.get(k)}`:null).filter(Boolean).join(' | ');
+    const subject = encodeURIComponent(`${purpose || '問い合わせ'}${utm? ' ｜ '+utm : ''}`);
+    const body = encodeURIComponent(
+`【お名前】
+【人数／日付／時間】
+【電話番号】
+【ご要望】（席/コース/苦手食材など）
+【備考】`
+    );
+    return `mailto:${TO}?subject=${subject}&body=${body}`;
+  }
+  document.querySelectorAll('#ctaMailTop,#ctaMailDock').forEach(a=>{ a.href = buildMailto('来店予約'); });
+  const m = document.getElementById('ctaMailCourse'); if(m) m.href = buildMailto('コース空き状況');
+  const d = document.getElementById('ctaMailDrink');  if(d) d.href = buildMailto('飲み放題メニュー'); 
+</script>
+</body>
+</html>
