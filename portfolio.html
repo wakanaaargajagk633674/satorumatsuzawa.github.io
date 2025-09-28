@@ -1,0 +1,38 @@
+<!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>制作ポートフォリオ｜松澤</title>
+<style>body{font-family:system-ui;margin:0;color:#0f172a}
+.wrap{max-width:980px;margin:0 auto;padding:22px}
+h1{font-size:24px;margin:0 0 12px;color:#0ea5e9}
+.grid{display:grid;gap:16px}@media(min-width:880px){.grid{grid-template-columns:repeat(3,1fr)}}
+.card{border:1px solid #e2e8f0;border-radius:14px;overflow:hidden;background:#fff}
+.card img{width:100%;height:160px;object-fit:cover}
+.card .b{padding:12px}
+.cta{display:inline-block;margin-top:8px;padding:10px 12px;border:1px solid #e2e8f0;border-radius:10px;text-decoration:none}
+.dock{position:fixed;left:0;right:0;bottom:0;background:#ffffffcc;border-top:1px solid #e2e8f0;padding:10px;display:flex;justify-content:center}
+</style>
+<div class="wrap">
+  <h1>制作ポートフォリオ</h1>
+  <p>ローカル事業者向け：<b>LP1日制作／広告レスキュー／計測最小実装</b>（即日デモ可）</p>
+  <div class="grid">
+    <a class="card" href="/izakaya.html" target="_blank" rel="noopener">
+      <img src="/images/hero.jpg" alt="居酒屋LP">
+      <div class="b"><b>居酒屋（飲食）LP</b><div>炭火×小皿／飲み放題コース訴求／来店予約CTA</div></div>
+    </a>
+    <!-- 次の業種を増やす場所（美容室、整体、工務店など） -->
+    <div class="card">
+      <img src="/images/interior_table.jpg" alt="次サンプル">
+      <div class="b"><b>次のサンプル</b><div>ここに増やせます</div></div>
+    </div>
+    <div class="card">
+      <img src="/images/interior_counter.jpg" alt="次サンプル">
+      <div class="b"><b>次のサンプル</b><div>ここに増やせます</div></div>
+    </div>
+  </div>
+</div>
+<div class="dock"><a class="cta" id="cta">このデザインで御社版を即日デモ</a></div>
+<script>
+  const to="m.satoru1983@gmail.com";
+  const s=encodeURIComponent("LPデモ依頼｜ポートフォリオを見ました");
+  const b=encodeURIComponent("【会社名】\n【URL】\n【業種】\n【希望：LP/広告/SEO】\n【打合せ希望日時】");
+  document.getElementById('cta').href=`mailto:${to}?subject=${s}&body=${b}`;
+</script>
